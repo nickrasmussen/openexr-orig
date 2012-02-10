@@ -1,0 +1,45 @@
+ABOUT THE OPENEXR LIBRARIES
+----------------------------
+
+PyIlmBase is our python bindings for Imath and the other libraries
+in the IlmBase library.
+
+If you have questions about using the OpenEXR libraries, you may want
+to join our developer mailing list.  See http://www.openexr.com for
+details.
+
+
+LICENSE
+-------
+
+The OpenEXR source code distribution is free software.  See the file
+named COPYING (included in this distribution) for details.
+
+
+BUILDING PYILMBASE
+------------------
+
+Building OpenEXR requires IlmBase and the boost library.
+
+You can obtain the source code for boost from:
+
+   http://www.boost.org
+
+After installing the required libraries, to build PyIlmBase on
+GNU/Linux or other UNIX-like systems, do this:
+
+./configure
+make
+make install
+
+unless you obtained OpenEXR directly from github, in which case you
+should first read README.GIT.
+
+Do `make check` to run the PyIlmBase confidence tests.  They should all
+pass; if you find a test that does not pass on your system, please let
+us know.
+
+Other UNIX variants haven't been tested, but should be easy to build.
+Let us know if you're having problems porting PyIlmBase to a particular
+platform.
+

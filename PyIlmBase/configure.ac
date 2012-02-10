@@ -60,7 +60,7 @@ AM_COMPILELINKRUN(
    AC_MSG_ERROR([Could not compile IlmBase test program.]))
 
 dnl Checks for python and boost python
-AM_PATH_PYTHON
+AM_PATH_PYTHON[2.6]
 PYTHON_INC_DIR=`$PYTHON -c 'from distutils.sysconfig import *; print get_python_inc()'`
 PYTHON_LIB_DIR=`$PYTHON -c 'from distutils.sysconfig import *; print get_config_var("LIBDIR")'`
 LIBS="$LIBS -lpython$PYTHON_VERSION"
@@ -85,8 +85,8 @@ AC_ARG_WITH(
    [AS_HELP_STRING([--with-boost-python-libname],["boost::python library name (default: boost_python)"])],
    [BOOST_PYTHON_LIBNAME="$withval"])
 
-CXXFLAGS="$CXXFLAGS -I$PYTHON_INC_DIR $BOOST_PYTHON_CXXFLAGS"
-LDFLAGS="$LDFLAGS -L$PYTHON_LIB_DIR $BOOST_PYTHON_LDFLAGS"
+CXXFLAGS="$CXXFLAGS $BOOST_PYTHON_CXXFLAGS -I$PYTHON_INC_DIR"
+LDFLAGS="$LDFLAGS $BOOST_PYTHON_LDFLAGS -L$PYTHON_LIB_DIR"
 
 BOOST_PYTHON_LIBS="-l$BOOST_PYTHON_LIBNAME"
 
